@@ -65,7 +65,6 @@ userId uuid,
 ts timestamp,
 longitude double,
 latitude double,
-speed integer
  
  ```
  ## Why We need Kafka Streams for collecting data ?
@@ -108,7 +107,6 @@ userId uuid,
 ts timestamp,
 longitude double,
 latitude double,
-spead integer,
 PRIMARY_KEY(userId, ts));
 ```
 >Partition column is -userId<br>
@@ -116,7 +114,7 @@ clustering column is - ts
 
 An insert to cassandra may look like 
 ```
-INSERT INTO TRACKER (userId, ts, longitude, latitude, speed ) values (1, 0, 0, 0, 10);;
+INSERT INTO TRACKER (userId, ts, longitude, latitude ) values (1, 0, 0, 0);
 ```
 Lets assume we made three inserts like above for the same user, then the partition looks like below
 
